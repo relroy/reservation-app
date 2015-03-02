@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301222513) do
+ActiveRecord::Schema.define(version: 20150301231105) do
+
+  create_table "boats", force: :cascade do |t|
+    t.string   "name",         limit: 255
+    t.string   "type",         limit: 255
+    t.integer  "size",         limit: 4
+    t.string   "harbor",       limit: 255
+    t.decimal  "total_shares",             precision: 10
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  create_table "share_options", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
