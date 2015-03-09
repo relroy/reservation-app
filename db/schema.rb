@@ -11,16 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301231105) do
+ActiveRecord::Schema.define(version: 20150308184240) do
 
   create_table "boats", force: :cascade do |t|
-    t.string   "name",         limit: 255
-    t.string   "type",         limit: 255
-    t.integer  "size",         limit: 4
-    t.string   "harbor",       limit: 255
-    t.decimal  "total_shares",             precision: 10
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.string   "image_url",              limit: 255
+    t.string   "name",                   limit: 255
+    t.string   "make",                   limit: 255
+    t.integer  "size",                   limit: 4
+    t.integer  "shares_possible",        limit: 4
+    t.decimal  "full_share_price",                   precision: 6, scale: 2
+    t.decimal  "two_thirds_share_price",             precision: 6, scale: 2
+    t.integer  "half_day_credits",       limit: 4
+    t.integer  "full_day_credits",       limit: 4
+    t.integer  "multi_day_credits",      limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "harbor",                 limit: 255
   end
 
   create_table "share_options", force: :cascade do |t|

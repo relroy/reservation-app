@@ -1,0 +1,65 @@
+<h1>Edit this Boat</h1>
+
+<%= form_tag("/boats/#{@boat.id}", :method => :patch) do %>
+  <div id="form-div">
+	 <div class="inner_div">
+	 <%= label_tag :image %>
+   <%= text_field_tag :image %>
+   </div>
+    
+    <div class="inner_div">
+    <%= label_tag :name %>
+      <%= text_field_tag :name %>
+    </div>
+    
+    <div class="inner_div">
+      <%= label_tag :make %>
+      <%= text_field_tag :make %>
+    </div>
+    
+    <div class="inner_div">
+    <%= label_tag :size %>
+      <%= text_field_tag :size %>
+    </div>
+    
+    <div class="inner_div">
+      <%= label_tag :harbor %>
+      <%= text_field_tag :harbor %>
+    </div>
+
+     <div class="inner_div">
+      <%= label_tag :shares_possible %>
+      <%= text_field_tag :shares_possible %>
+    </div>
+
+     <div class="inner_div">
+      <%= label_tag :full_share_price %>
+      <%= text_field_tag :full_share_price %>
+    </div>
+
+     <div class="inner_div">
+      <%= label_tag :two_thirds_share_price %>
+      <%= text_field_tag :two_thirds_share_price %>
+    </div>
+
+    <div class="inner_div">
+      <%= label_tag :half_day_credits %>
+      <%= text_field_tag :half_day_credits %>
+    </div>
+
+    <div class="inner_div">
+      <%= label_tag :full_day_credits %>
+      <%= text_field_tag :full_day_credits %>
+    </div>
+
+    <div class="inner_div">
+      <%= label_tag :multi_day_credits %>
+      <%= text_field_tag :multi_day_credits %>
+    </div>
+  </div>
+  <div>
+    <%= submit_tag "Submit Changes", :class => "submit_boat_changes" %>
+  </div>
+
+
+<% end %>

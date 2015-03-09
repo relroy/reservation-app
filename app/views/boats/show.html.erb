@@ -1,0 +1,17 @@
+<h1><%=@boat.name%></h1>
+<img src="<%=@boat.image_url%>" width="250">
+    <h2>Lease Rates</h2>
+    <p>Full Share:<%=@boat.full_share_price%></p>
+    <p>2/3rd Share:<%=@boat.two_thirds_share_price%></p>
+  <br>
+  <h2>Credit Rates</h2>
+    <p>Half Day Credit (9am-2pm)/(3pm-10pm):<%=@boat.half_day_credits%></p>
+    <p>Full Day Credit (9am-10pm):<%=@boat.full_day_credits%></p>
+  </div>
+  </div>
+
+  <a href="/boats/<%= @boat.id %>/edit">Edit</a>
+  <br>
+  <a href="/boats/<%= @boat.id %>" data-method="delete" rel="nofollow" data-confirm="Are you sure?">Delete</a>
+
+    <!--need submit tag and model for lease this boat!--> 
