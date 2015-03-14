@@ -3,8 +3,8 @@
 <%= form_tag("/boats/#{@boat.id}", :method => :patch) do %>
   <div id="form-div">
 	 <div class="inner_div">
-	 <%= label_tag :image %>
-   <%= text_field_tag :image %>
+   <%= label_tag :image_url %>
+   <%= text_field_tag :image_url %>
    </div>
     
     <div class="inner_div">
@@ -43,21 +43,57 @@
     </div>
 
     <div class="inner_div">
-      <%= label_tag :half_day_credits %>
-      <%= text_field_tag :half_day_credits %>
+      <%= label_tag :half_credit_AM_MTWTh %>
+      <%= text_field_tag :half_credit_AM_MTWTh %>
     </div>
 
     <div class="inner_div">
-      <%= label_tag :full_day_credits %>
-      <%= text_field_tag :full_day_credits %>
+      <%= label_tag :half_credit_PM_MTWTh %>
+      <%= text_field_tag :half_credit_PM_MTWTh %>
     </div>
 
     <div class="inner_div">
-      <%= label_tag :multi_day_credits %>
-      <%= text_field_tag :multi_day_credits %>
+      <%= label_tag :half_credit_AM_F %>
+      <%= text_field_tag :half_credit_AM_F %>
+    </div>
+    <div class="inner_div">
+      <%= label_tag :half_credit_PM_F %>
+      <%= text_field_tag :half_credit_PM_F %>
+    </div>
+    <div class="inner_div">
+      <%= label_tag :half_credit_AM_SAT %>
+      <%= text_field_tag :half_credit_AM_SAT %>
+    </div>
+    <div class="inner_div">
+      <%= label_tag :half_credit_PM_SAT %>
+      <%= text_field_tag :half_credit_PM_SAT %>
+    </div>
+    <div class="inner_div">
+      <%= label_tag :half_credit_AM_SUN %>
+      <%= text_field_tag :half_credit_AM_SUN %>
+    </div>
+    <div class="inner_div">
+      <%= label_tag :half_credit_PM_SUN %>
+      <%= text_field_tag :half_credit_PM_SUN %>
+    </div>
+    <div class="inner_div">
+      <%= label_tag :full_credit_MTWTh %>
+      <%= text_field_tag :full_credit_MTWTh %>
+    </div>
+    <div class="inner_div">
+      <%= label_tag :full_credit_F %>
+      <%= text_field_tag :full_credit_F %>
+    </div>
+    <div class="inner_div">
+      <%= label_tag :full_credit_SAT %>
+      <%= text_field_tag :full_credit_SAT %>
+    </div>
+    <div class="inner_div">
+      <%= label_tag :full_credit_SUN %>
+      <%= text_field_tag :full_credit_SUN %>
     </div>
   </div>
-  <div>
+  </div>
     <%= submit_tag "Submit Changes", :class => "submit_boat_changes" %>
   </div>
 
