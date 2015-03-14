@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # unauthenticated do
   #   root 'devise/registrations#new', as: :unauthenticated_root
   # end
+
+  resources :admins
   
   get '/' => 'boats#index'
   get '/boats' => 'boats#index'

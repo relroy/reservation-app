@@ -1,41 +1,42 @@
-<h2>Sign up</h2>
+<h2>Register</h2>
+<h3>Once registered you will be contacted with further details.</h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+    <%= f.text_field :first_name, autofocus: true, :required => true %>
   </div>
 
   <div class="field">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
+    <%= f.text_field :last_name, autofocus: true, :required => true %>
   </div>
 
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.text_field :address, autofocus: true %>
+    <%= f.text_field :address, autofocus: true, :required => true %>
   </div>
 
   <div class="field">
     <%= f.label :city %><br />
-    <%= f.text_field :city, autofocus: true %>
+    <%= f.text_field :city, autofocus: true, :required => true %>
   </div>
 
   <div class="field">
     <%= f.label :state %><br />
-    <%= f.text_field :state, autofocus: true %>
+    <%= f.text_field :state, autofocus: true, :required => true %>
   </div>
 
   <div class="field">
     <%= f.label :zip_code %><br />
-    <%= f.text_field :zip_code, autofocus: true %>
+    <%= f.text_field :zip_code, autofocus: true, :required => true %>
   </div>
 
   <div class="field">
     <%= f.label :phone %><br />
-    <%= f.text_field :phone, autofocus: true %>
+    <%= f.text_field :phone, autofocus: true, :required => true%>
   </div>
 
   <div class="field">
