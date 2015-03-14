@@ -2,8 +2,23 @@
 <h1>Admins Page</h1>
 
   <% @users.each do |user| %>
-    
-    <li><%= user.first_name %></li>
-    <% end %>
+
+    <table class="table table-striped table-bordered table-responsive">
+      <thead>
+        <tr>
+          <th class="bg-primary">Name</th>
+          <th class="bg-primary">Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= user.first_name %> <%= user.last_name %></td>
+          <td><%= user.address %> <%= user.city %>, <%= user.state %> <%= user.zip_code %></td>
+
+        </tr>
+      </tbody>
+  <% end %>
+
+    </table>
 
 </div>
