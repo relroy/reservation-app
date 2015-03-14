@@ -8,13 +8,23 @@
         <tr>
           <th class="bg-primary">Name</th>
           <th class="bg-primary">Address</th>
+          <th class="bg-primary">Phone #</th>
+          <th class="bg-primary">Preferred Boat</th>
+          <th class="bg-primary">Full Share or 2/3rd Share</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><%= user.first_name %> <%= user.last_name %></td>
           <td><%= user.address %> <%= user.city %>, <%= user.state %> <%= user.zip_code %></td>
-
+          <td><%= user.phone %></td>
+          <td><%= user.boat_preference %></td>
+          <% if user.full_share %>
+          <td><%= user.full_share %></td>
+          <% end %>
+          <% if user.two_thirds_share %>
+          <td><%= user.two_thirds_share %></td>
+          <% end %>
         </tr>
       </tbody>
   <% end %>
