@@ -1,97 +1,97 @@
 
-<div class="container_fluid">
+<div class="container-fluid">
 <h1>Enter a New Boat</h1>
 
 <%=form_tag '/boats' do %>
   <div id="form-div">
 	 <div class="inner_div">
-	 <%= label_tag :image_url %>
+	 <label>Image</label>
    <%= text_field_tag :image_url %>
    </div>
     
     <div class="inner_div">
-    <%= label_tag :name %>
+    <%= label_tag "Boat Name" %>
       <%= text_field_tag :name %>
     </div>
     
     <div class="inner_div">
-      <%= label_tag :make %>
+      <%= label_tag "Make" %>
       <%= text_field_tag :make %>
     </div>
     
     <div class="inner_div">
-    <%= label_tag :size %>
+    <%= label_tag "Boat Size" %>
       <%= text_field_tag :size %>
     </div>
     
     <div class="inner_div">
-      <%= label_tag :harbor %>
+      <%= label_tag "Harbor" %>
       <%= text_field_tag :harbor %>
     </div>
 
      <div class="inner_div">
-      <%= label_tag :shares_possible %>
+      <%= label_tag "Possible Shares" %>
       <%= text_field_tag :shares_possible %>
     </div>
 
      <div class="inner_div">
-      <%= label_tag :full_share_price %>
+      <%= label_tag "Full Price" %>
       <%= text_field_tag :full_share_price %>
     </div>
 
      <div class="inner_div">
-      <%= label_tag :two_thirds_share_price %>
+      <%= label_tag "2/3rds Price" %>
       <%= text_field_tag :two_thirds_share_price %>
     </div>
 
     <div class="inner_div">
-      <%= label_tag :half_credit_AM_MTWTh %>
+      <%= label_tag "1/2 Day Credit AM Mon-Thur" %>
       <%= text_field_tag :half_credit_AM_MTWTh %>
     </div>
 
     <div class="inner_div">
-      <%= label_tag :half_credit_PM_MTWTh %>
+      <%= label_tag "1/2 Day Credit PM Mon-Thur" %>
       <%= text_field_tag :half_credit_PM_MTWTh %>
     </div>
 
     <div class="inner_div">
-      <%= label_tag :half_credit_AM_F %>
+      <%= label_tag "1/2 Day Credit AM Friday" %>
       <%= text_field_tag :half_credit_AM_F %>
     </div>
     <div class="inner_div">
-      <%= label_tag :half_credit_PM_F %>
+      <%= label_tag "1/2 Day Credit PM Friday" %>
       <%= text_field_tag :half_credit_PM_F %>
     </div>
     <div class="inner_div">
-      <%= label_tag :half_credit_AM_SAT %>
+      <%= label_tag "1/2 Day Credit AM Saturday" %>
       <%= text_field_tag :half_credit_AM_SAT %>
     </div>
     <div class="inner_div">
-      <%= label_tag :half_credit_PM_SAT %>
+      <%= label_tag "1/2 Day Credit PM Saturday" %>
       <%= text_field_tag :half_credit_PM_SAT %>
     </div>
     <div class="inner_div">
-      <%= label_tag :half_credit_AM_SUN %>
+      <%= label_tag "1/2 Day Credit AM Sunday" %>
       <%= text_field_tag :half_credit_AM_SUN %>
     </div>
     <div class="inner_div">
-      <%= label_tag :half_credit_PM_SUN %>
+      <%= label_tag "1/2 Day Credit PM Sunday" %>
       <%= text_field_tag :half_credit_PM_SUN %>
     </div>
     <div class="inner_div">
-      <%= label_tag :full_credit_MTWTh %>
+      <%= label_tag "Full Day Credit Mon-Thur" %>
       <%= text_field_tag :full_credit_MTWTh %>
     </div>
     <div class="inner_div">
-      <%= label_tag :full_credit_F %>
+      <%= label_tag "Full Day Credit Friday" %>
       <%= text_field_tag :full_credit_F %>
     </div>
     <div class="inner_div">
-      <%= label_tag :full_credit_SAT %>
+      <%= label_tag "Full Day Credit Saturday" %>
       <%= text_field_tag :full_credit_SAT %>
     </div>
     <div class="inner_div">
-      <%= label_tag :full_credit_SUN %>
+      <%= label_tag "Full Day Credit Sunday" %>
       <%= text_field_tag :full_credit_SUN %>
     </div>
   </div>
