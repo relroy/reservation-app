@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   # end
 
   resources :admins
+
+  resources :users
   
   get '/' => 'boats#index'
   get '/boats' => 'boats#index'
