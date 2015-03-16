@@ -55,11 +55,11 @@
     </tr>
   </table>
  
-    <%# if user_signed_in && current_user.admin? %>
+    <% if current_user.admin? %>
   <a href="/boats/<%= @boat.id %>/edit">Edit</a>
   <br>
   <a href="/boats/<%= @boat.id %>" data-method="delete" rel="nofollow" data-confirm="Are you sure?">Delete</a>
-  <%# end %>
+  <% end %>
 </div>
 
 
