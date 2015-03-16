@@ -1,34 +1,30 @@
 <div class="container-fluid">
-<h1>Admins Page</h1>
+  <h1>Admin Index Page</h1>
+  <a href="/users"><h3>Users Information</h3></a>
+  <a href="/boats"><h3>Boats Information</h3></a>
 
 
-    <table class="table table-striped table-bordered table-responsive">
-      <thead>
-        <tr>
-          <th class="bg-primary">Name</th>
-          <th class="bg-primary">Address</th>
-          <th class="bg-primary">Phone #</th>
-          <th class="bg-primary">Preferred Boat</th>
-          <th class="bg-primary">Full Share or 2/3rd Share</th>
-        </tr>
-      </thead>
-  <% @users.each do |user| %>
-      <tbody>
-        <tr>
-          <td><%= user.first_name %> <%= user.last_name %></td>
-          <td><%= user.address %> <%= user.city %>, <%= user.state %> <%= user.zip_code %></td>
-          <td><%= user.phone %></td>
-          <td><%= user.boat_preference %></td>
-          <% if user.full_share %>
-          <td><%= user.full_share %></td>
-          <% end %>
-          <% if user.two_thirds_share %>
-          <td><%= user.two_thirds_share %></td>
-          <% end %>
-        </tr>
-      </tbody>
-  <% end %>
 
-    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </div>
