@@ -30,17 +30,17 @@
       <%= text_field_tag :harbor, @boat.harbor %>
     </div>
 
-     <div class="inner_div">
+    <div class="inner_div">
       <%= label_tag %>Possible Shares<br />
       <%= text_field_tag :shares_possible, @boat.shares_possible %>
     </div>
 
-     <div class="inner_div">
+    <div class="inner_div">
       <%= label_tag %>Full Price<br />
       <%= text_field_tag :full_share_price, @boat.full_share_price %>
     </div>
 
-     <div class="inner_div">
+    <div class="inner_div">
       <%= label_tag %>2/3rds Price<br />
       <%= text_field_tag :two_thirds_share_price, @boat.two_thirds_share_price %>
     </div>
@@ -59,44 +59,51 @@
       <%= label_tag %>1/2 Day Credit AM Friday<br />
       <%= text_field_tag :half_credit_AM_F, @boat.half_credit_AM_F %>
     </div>
+
     <div class="inner_div">
       <%= label_tag %>1/2 Day Credit PM Friday<br />
       <%= text_field_tag :half_credit_PM_F, @boat.half_credit_PM_F %>
     </div>
+
     <div class="inner_div">
       <%= label_tag %>1/2 Day Credit AM Saturday<br />
       <%= text_field_tag :half_credit_AM_SAT, @boat.half_credit_AM_SAT %>
     </div>
+
     <div class="inner_div">
       <%= label_tag %>1/2 Day Credit PM Saturday<br />
       <%= text_field_tag :half_credit_PM_SAT, @boat.half_credit_PM_SAT %>
     </div>
+
     <div class="inner_div">
       <%= label_tag %>1/2 Day Credit AM Sunday<br />
       <%= text_field_tag :half_credit_AM_SUN, @boat.half_credit_AM_SUN %>
     </div>
+
     <div class="inner_div">
       <%= label_tag %>1/2 Day Credit PM Sunday<br />
       <%= text_field_tag :half_credit_PM_SUN, @boat.half_credit_PM_SUN %>
     </div>
+
     <div class="inner_div">
       <%= label_tag %>Full Day Credit Mon-Thur<br />
       <%= text_field_tag :full_credit_MTWTh, @boat.full_credit_MTWTh %>
     </div>
+
     <div class="inner_div">
       <%= label_tag %>Full Day Credit Friday<br />
       <%= text_field_tag :full_credit_F, @boat.full_credit_F %>
     </div>
+
     <div class="inner_div">
       <%= label_tag %>Full Day Credit Saturday<br />
       <%= text_field_tag :full_credit_SAT, @boat.full_credit_SAT %>
     </div>
+
     <div class="inner_div">
       <%= label_tag %>Full Day Credit Sunday<br />
       <%= text_field_tag :full_credit_SUN, @boat.full_credit_SUN %>
     </div>
-  </div>
-  </div>
     <%= submit_tag "Submit Changes", :class => "submit_boat_changes" %>
   </div>
 <% end %>
