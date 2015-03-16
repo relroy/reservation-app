@@ -4,18 +4,19 @@
 
 <%= form_tag("/boats/#{@boat.id}", :method => :patch) do %>
   <div id="form-div">
-	 <div class="inner_div">
-   <%= label_tag %>Boat Image<br />
-   <%= text_field_tag :image_url, @boat.image_url %>
-   </div>
+
+  	 <div class="inner_div">
+     <%= label_tag %>Boat Image<br />
+     <%= text_field_tag :image_url, @boat.image_url %>
+     </div>
     
     <div class="inner_div">
-    <%= label_tag%>Boat Name<br />
+    <%= label_tag %>Boat Name<br />
       <%= text_field_tag :name, @boat.name %>
     </div>
     
     <div class="inner_div">
-      <%= label_tag%>Make<br />
+      <%= label_tag %>Make<br />
       <%= text_field_tag :make, @boat.make %>
     </div>
     
@@ -98,7 +99,5 @@
   </div>
     <%= submit_tag "Submit Changes", :class => "submit_boat_changes" %>
   </div>
-
-
 <% end %>
 </div>
