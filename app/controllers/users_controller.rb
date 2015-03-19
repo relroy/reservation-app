@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    # @users = User.all
+    @users = User.search(params[:query])
     
   end
 
@@ -32,5 +33,12 @@ class UsersController < ApplicationController
     redirect_to "/users"
     
   end
+  # 
+
+  def search
+    @group_id = params[:group_id]    
+    @users = User.all
+  end
+  # 
 
 end

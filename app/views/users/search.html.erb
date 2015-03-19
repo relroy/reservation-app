@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Here is the Group you were searching for:</h1>
+  <%= link_to 'Back to users', users_path %>
+
+  <table id="product_table" class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Boat</th>
+        <th>Group ID #</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>  
+      <% if user.group_id == params[:group_id] %>
+      <tr>
+        <td><%= user.first_name %> <%= user.last_name %></td> 
+        <td><%= user.boat_assigned %></td>
+        <td><%= user.group_id %></td>
+
+      </tr>
+    </tbody>
+    <% end %>
+    <% end %>
+ 
+  
+   </table>
+  <div>
+  </div>

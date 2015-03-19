@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   patch '/boats/:id' => 'boats#update'
   delete '/boats/:id' => 'boats#destroy'
 
+  post 'search' => 'users#search'
+
   
 
 
