@@ -5,6 +5,8 @@ class AdminsController < ApplicationController
     @users = User.all
     else render :file => "/public/422.html", :status => 422
     end
+
+    @boats = Boat.all
     
   end
 

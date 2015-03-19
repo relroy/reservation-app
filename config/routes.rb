@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   resources :admins
 
   resources :users
+
+  resources :groups
+
+  resources :reservations
   
   get '/' => 'boats#index'
   get '/boats' => 'boats#index'
@@ -26,6 +30,8 @@ Rails.application.routes.draw do
   get '/boats/:id/edit' => 'boats#edit'
   patch '/boats/:id' => 'boats#update'
   delete '/boats/:id' => 'boats#destroy'
+
+  
 
 
 

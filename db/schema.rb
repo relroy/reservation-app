@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316144540) do
+ActiveRecord::Schema.define(version: 20150318232415) do
 
   create_table "boats", force: :cascade do |t|
     t.string   "image_url",                limit: 255
@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 20150316144540) do
     t.string   "make",                     limit: 255
     t.integer  "size",                     limit: 4
     t.integer  "shares_possible",          limit: 4
-    t.decimal  "full_share_price",                     precision: 6, scale: 2
-    t.decimal  "two_thirds_share_price",               precision: 6, scale: 2
-    t.datetime "created_at",                                                   null: false
-    t.datetime "updated_at",                                                   null: false
+    t.decimal  "full_share_price",                       precision: 6, scale: 2
+    t.decimal  "two_thirds_share_price",                 precision: 6, scale: 2
+    t.datetime "created_at",                                                                     null: false
+    t.datetime "updated_at",                                                                     null: false
     t.string   "harbor",                   limit: 255
-    t.decimal  "two_thirds_price",                     precision: 7, scale: 2
+    t.decimal  "two_thirds_price",                       precision: 7, scale: 2
     t.integer  "half_credit_AM_MTWTh",     limit: 4
     t.integer  "half_credit_PM_MTWTh",     limit: 4
     t.integer  "half_credit_AM_F",         limit: 4
@@ -40,6 +40,29 @@ ActiveRecord::Schema.define(version: 20150316144540) do
     t.string   "type",                     limit: 255
     t.integer  "two_thirds_credits_total", limit: 4
     t.integer  "full_credits_total",       limit: 4
+    t.text     "service_notes",            limit: 65535
+    t.string   "current_status",           limit: 255
+    t.boolean  "one_day_out",              limit: 1,                             default: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "group_id",   limit: 4
+    t.integer  "group_size", limit: 4
+    t.integer  "user_id",    limit: 4
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.datetime "date_reserved"
+    t.boolean  "am_block",       limit: 1,   default: false
+    t.boolean  "pm_block",       limit: 1,   default: false
+    t.boolean  "full_day_block", limit: 1,   default: false
+    t.string   "user_id",        limit: 255
+    t.string   "group_id",       limit: 255
+    t.string   "boat_id",        limit: 255
   end
 
   create_table "share_options", force: :cascade do |t|
@@ -74,6 +97,8 @@ ActiveRecord::Schema.define(version: 20150316144540) do
     t.string   "full_share",             limit: 255
     t.string   "two_thirds_share",       limit: 255
     t.string   "boat_assigned",          limit: 255
+    t.integer  "group_id",               limit: 4
+    t.integer  "group_size",             limit: 4
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

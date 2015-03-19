@@ -1,0 +1,30 @@
+<div = class="container-fluid">
+
+<h1>All Reservations</h1>
+
+<% @reservations.each do |reservation| %>
+<h4>Group ID = <%= reservation.group_id %></h4>
+<h4>User ID = <%= reservation.user_id %></h4>
+<h4>Boat in use is <%= reservation.boat_id %></h4>
+<% if reservation.am_block %>
+<h4>AM Reserved</h4>
+<% elsif reservation.pm_block %>
+<h4>PM Reserved</h4>
+<% else reservation.full_day_block %>
+<h4>Full Day Reserved</h4>
+<h4><%= reservation.date_reserved %></h4>
+<% end %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+

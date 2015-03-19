@@ -1,0 +1,25 @@
+<div class+ "container-fluid">
+
+<h1>User Groups</h1>
+
+<table class="table table-striped table-bordered table-responsive">
+    <thead>
+      <tr>
+        <th class="bg-primary">Group ID</th>
+        <th class="bg-primary">Group Size</th>
+        <th class="bg-primary">User ID</th>
+      </tr>
+    </thead>
+  <% @groups.each do |group| %> 
+  <tbody>
+      <tr>
+        <td><button><a href= "/groups/<%= group.id %>/edit"> Edit </a></button>  <%= group.group_id %></td>
+        <td><%= group.group_size %></td>
+        
+        <td><%= user.first_name %></td>
+        
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+</div>
