@@ -2,6 +2,10 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all
+    @reservations = @reservations.sort_by do |i|
+      i[:group_id]
+      
+    end
     
   end
 

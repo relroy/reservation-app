@@ -3,18 +3,40 @@
 <h1>All Reservations</h1>
 
 <% @reservations.each do |reservation| %>
-<h4>Group ID = <%= reservation.group_id %></h4>
-<h4>User ID = <%= reservation.user_id %></h4>
-<h4>Boat in use is <%= reservation.boat_id %></h4>
-<% if reservation.am_block %>
-<h4>AM Reserved</h4>
-<% elsif reservation.pm_block %>
-<h4>PM Reserved</h4>
-<% else reservation.full_day_block %>
-<h4>Full Day Reserved</h4>
-<h4><%= reservation.date_reserved %></h4>
-<% end %>
-<% end %>
+<table class="table table-striped table-bordered table-responsive">
+  <thead>
+    <tr>
+      <th class="bg-primary">Group ID #</th>
+      <th class="bg-primary">Registered User</th>
+      <th class="bg-primary">Boat Reserved</th>
+      <th class="bg-primary">Block Reserved</th>
+      <th class="bg-primary">Date Reserved</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= reservation.group_id %></td>
+      <td><%= reservation.user.first_name %></td>
+      <td><%= reservation.user.boat_assigned %></td>
+      <% if reservation.am_block %>
+      <td>AM Reserved</td>
+      <td><%= reservation.date_reserved.strftime("%A, %D") %></td>
+      <% elsif reservation.pm_block %>
+      <td>PM Reserved</td>
+      <td><%= reservation.date_reserved.strftime("%A, %D") %></td>
+      <% else reservation.full_day_block %>
+      <td>Full Day Reserved</td>
+      <td><%= reservation.date_reserved.strftime("%A, %D") %></td>
+      <% end %>
+      <% end %>
+  </tbody>
+</table>
+
+
+
+
+
+
 
 
 
