@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318232415) do
+ActiveRecord::Schema.define(version: 20150320210046) do
 
   create_table "boats", force: :cascade do |t|
     t.string   "image_url",                limit: 255
@@ -46,11 +46,12 @@ ActiveRecord::Schema.define(version: 20150318232415) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "group_id",   limit: 4
-    t.integer  "group_size", limit: 4
-    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.string   "boat_assigned",    limit: 255
+    t.integer  "credits",          limit: 4
+    t.boolean  "full_share",       limit: 1,   default: false
+    t.boolean  "two_thirds_share", limit: 1,   default: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -94,14 +95,12 @@ ActiveRecord::Schema.define(version: 20150318232415) do
     t.string   "zip_code",               limit: 255
     t.string   "phone",                  limit: 255
     t.string   "boat_preference",        limit: 255
-    t.string   "full_share",             limit: 255
-    t.string   "two_thirds_share",       limit: 255
-    t.string   "boat_assigned",          limit: 255
-    t.integer  "group_id",               limit: 4
-    t.integer  "group_size",             limit: 4
+    t.string   "group_id",               limit: 11
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["first_name"], name: "first_name", type: :fulltext
+  add_index "users", ["group_id"], name: "group_id", type: :fulltext
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

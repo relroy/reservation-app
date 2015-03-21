@@ -1,0 +1,13 @@
+<div class="container-fluid">
+<%= form_tag("/resevations/1", :method => :patch) do %>
+  <div id="form-div">
+
+     <div class="inner_div">
+     <%= label_tag %>Pick Date<br />
+     <%= text_field_tag :date_reserved, @reservation.date_reserved %>
+     </div>
+    
+    <%= submit_tag "Submit Changes", :class => "submit_boat_changes" %>
+  </div>
+<% end %>
+</div>

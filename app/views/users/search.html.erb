@@ -16,7 +16,7 @@
       <% if user.group_id == params[:group_id] %>
       <tr>
         <td><%= user.first_name %> <%= user.last_name %></td> 
-        <td><%= user.boat_assigned %></td>
+        <td><%= user.group.boat_assigned %></td>
         <td><%= user.group_id %></td>
 
       </tr>

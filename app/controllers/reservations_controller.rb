@@ -3,19 +3,20 @@ class ReservationsController < ApplicationController
   def index
     @reservations = Reservation.all
     @reservations = @reservations.sort_by do |i|
-      i[:group_id]
-      
+      i[:group_id]   
     end
     
   end
 
   def edit
+    @reservation = Reservation.find(params[:id])
     
   end
 
   def show
     @reservation = Reservation.find(params[:id])
-    
+    @group = Group.find(params[:id])
+
   end
 
   def new

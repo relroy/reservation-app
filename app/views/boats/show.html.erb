@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 <h1><%=@boat.name%></h1>
 <img src="<%=@boat.image_url%>" width="250" class="img-thumbnail">
     <h2>Lease Rates</h2>
@@ -19,6 +19,9 @@
     </tr>
   </table>
   <h3>Leases available for <%=@boat.name%>: <%=@boat.shares_possible %></h3>
+  <% if  user_signed_in? && current_user.allowed? %>
+  <button><a href="/reservations/<%= current_user.group.id %>">Reserve</a></button>
+  <% end %>
   <br>
   <h2>Credit Rates</h2>
   <h4>Day Block: 9 a.m. - 3 p.m.</h4>
@@ -55,7 +58,7 @@
     </tr>
   </table>
  
-    <% if current_user.admin? %>
+    <% if user_signed_in? && current_user.admin? %>
   <button><a href="/boats/<%= @boat.id %>/edit">Edit</a></button> <button><a href="/boats/<%= @boat.id %>" data-method="delete" rel="nofollow" data-confirm="Are you sure?">Delete</a></button>
   <br>
    <br>

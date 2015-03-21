@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
          def self.search(query)
           if query.present?
-            where("first_name @@ :q", "group_id @@ :q", q: query)
+            where("first_name @@ :q or group_id @@ :q", q: query)
           else
             all
           end
@@ -15,6 +15,6 @@ class User < ActiveRecord::Base
          end
 
   has_many :reservations
-  has_one :boat
+ 
   belongs_to :group
 end

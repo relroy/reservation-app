@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   def index
     # @users = User.all
     @users = User.search(params[:query])
+    @users = @users.sort_by do |i|
+      i[:group_id] 
+    end
     
   end
 
@@ -36,8 +39,8 @@ class UsersController < ApplicationController
   # 
 
   def search
-    @group_id = params[:group_id]    
-    @users = User.all
+        
+    @users = User.search(params[:query])
   end
   # 
 

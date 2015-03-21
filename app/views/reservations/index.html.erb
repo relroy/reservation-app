@@ -6,7 +6,9 @@
   <thead>
     <tr>
       <th class="bg-primary">Group ID #</th>
+      <% if user_signed_in? && current_user.admin? %>
       <th class="bg-primary">Registered User</th>
+      <% end %>
       <th class="bg-primary">Boat Reserved</th>
       <th class="bg-primary">Block Reserved</th>
       <th class="bg-primary">Date Reserved</th>
@@ -16,8 +18,10 @@
 <% @reservations.each do |reservation| %>
     <tr>
       <td><%= reservation.group_id %></td>
-      <td><%= reservation.user.first_name %></td>
-      <td><%= reservation.user.boat_assigned %></td>
+      <% if user_signed_in? && current_user.admin? %>
+      <td><%= reservation.user.first_name %> <%= reservation.user.last_name %></td>
+      <% end %>
+      <td><%= reservation.group.boat_assigned %></td>
       <% if reservation.am_block %>
       <td>AM Reserved</td>
       <td><%= reservation.date_reserved.strftime("%A, %D") %></td>

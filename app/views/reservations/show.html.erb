@@ -1,0 +1,14 @@
+<div class="container-fluid">
+
+<h1>Reservations for <%=current_user.first_name %> <%= current_user.last_name %> with group #<%= current_user.group_id %></h1>
+<h2>Your Boat: <%= current_user.group.boat_assigned %></h2>
+
+<% if @reservation.full_day_block? %>
+<h4>Full day reserved for <%= @reservation.date_reserved.strftime("%A, %D") %></h4>
+<% elsif @reservation.am_block? %>
+<h4>AM block reserved for <%= @reservation.date_reserved.strftime("%A, %D") %></h4>
+<% elsif @reservation.pm_block? %>
+<h4>PM block reserved for <%= @reservation.date_reserved.strftime("%A, %D") %></h4>
+<% else %>
+<% end %>
+</div>
