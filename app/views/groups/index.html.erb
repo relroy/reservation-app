@@ -1,25 +1,32 @@
 <div class+ "container-fluid">
 
-<h1>User Groups</h1>
+<h1> <a href="/users"> Users</a> Groups</h1>
 
 <table class="table table-striped table-bordered table-responsive">
     <thead>
       <tr>
         <th class="bg-primary">Group ID</th>
-        <th class="bg-primary">Group Size</th>
-        <th class="bg-primary">User ID</th>
+        <th class="bg-primary">Group Credits Total</th>
+        <th class="bg-primary">Type</th>
+        <th class="bg-primary">Boat Assigned</th>
       </tr>
     </thead>
+  
   <% @groups.each do |group| %> 
   <tbody>
       <tr>
-        <td><button><a href= "/groups/<%= group.id %>/edit"> Edit </a></button>  <%= group.group_id %></td>
-        <td><%= group.group_size %></td>
-        
-        <td><%= user.first_name %></td>
-        
+        <td><button><a href= "/groups/<%= group.id %>/edit"> Edit Group</a></button>  <%= group.id %></td>
+        <td><%= group.credits %></td>
+        <% if group.full_share %>
+        <td>Full Share</td>
+        <% elsif group.two_thirds_share %>
+        <td>2/3rds Share</td>
+        <td> <%= group.boat_assigned %></td>       
       </tr>
     </tbody>
   <% end %>
+  <% end %>
 </table>
+
+
 </div>

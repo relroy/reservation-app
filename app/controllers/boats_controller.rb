@@ -44,7 +44,7 @@ class BoatsController < ApplicationController
 			params[:half_credit_AM_F],:half_credit_PM_F => params[:half_credit_PM_F], :half_credit_AM_SAT => 
 			params[:half_credit_AM_SAT],:half_credit_PM_SAT => params[:half_credit_PM_SAT], :half_credit_AM_SUN => 
 			params[:half_credit_AM_SUN],:half_credit_PM_SUN => params[:half_credit_PM_SUN], :full_credit_MTWTh => 
-			params[:full_credit_MTWTh],:full_credit_F => params[:full_credit_F], :full_credit_SAT => 
+			params[:full_credit_MTWTh],:full_credit_F => params[:full_credit_F], :service_notes => params[:service_notes], :current_status => params[:current_status], :full_credit_SAT => 
 			params[:full_credit_SAT],:full_credit_SUN => params[:full_credit_SUN]})
 		flash[:info] = "Update Complete"
 		redirect_to "/boats/#{@boat.id}" 

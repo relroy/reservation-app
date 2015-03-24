@@ -1,23 +1,30 @@
 <div class="container-fluid">
-  <h1>Edit Group Information for <%= group.first_name %> <%= @user.last_name %></h1>
+  <h1>Edit Group Information for  </h1>
 <!-- should this edit a join table w/ user info instead?!  -->
 
 <%= form_tag("/groups/#{@group.id}", :method => :patch) do %>
 
   <div class="field">
-    <%= label_tag :group_id %><br />
-    <%= group_id_field_tag :user_id, @group.user_id, :required => true %>
+    <%= label_tag :boat_assigned %><br />
+    <%= text_field_tag :boat_assigned, @group.boat_assigned, :required => true %>
   </div>
 
   <div class="field">
-    <%= label_tag :group_id %><br />
-    <%= group_id_field_tag :group_id, @group.group_id, :required => true %>
+    <%= label_tag :credits %><br />
+    <%= text_field_tag :credits, @group.credits, :required => true %>
   </div>
 
   <div class="field">
-    <%= label_tag :group_size %><br />
-    <%= group_id_field_tag :group_size, @group.group_id, :required => true %>
+    <%= label_tag :full_share %><br />
+    <%= text_field_tag :full_share, @group.full_share %>
   </div>
+
+  <div class="field">
+    <%= label_tag :two_thirds_share %><br />
+    <%= text_field_tag :two_thirds_share, @group.two_thirds_share %>
+  </div>
+
+  
   <div class="actions">
     <%= submit_tag "Submit Changes", :class => "submit_group_changes" %>
   </div>

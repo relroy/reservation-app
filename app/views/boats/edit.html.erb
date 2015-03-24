@@ -1,6 +1,6 @@
 
 <div class="container-fluid"> 
-<h1>Edit this Boat</h1>
+<h1>Edit <%= @boat.name %> information</h1>
 
 <%= form_tag("/boats/#{@boat.id}", :method => :patch) do %>
   <div id="form-div">
@@ -28,6 +28,16 @@
     <div class="inner_div">
       <%= label_tag %>Harbor<br />
       <%= text_field_tag :harbor, @boat.harbor %>
+    </div>
+
+    <div class="inner_div">
+      <%= label_tag %>Current Status<br />
+      <%= text_field_tag :current_status, @boat.current_status %>
+    </div>
+
+    <div class="inner_div">
+      <%= label_tag %>Service Note<br />
+      <%= text_field_tag :service_notes, @boat.service_notes %>
     </div>
 
     <div class="inner_div">

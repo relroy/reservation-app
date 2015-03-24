@@ -8,6 +8,7 @@ class AdminsController < ApplicationController
 
     @boats = Boat.all
     
+    
   end
 
 end

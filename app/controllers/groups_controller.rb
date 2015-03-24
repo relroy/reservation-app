@@ -2,6 +2,8 @@ class GroupsController < ApplicationController
 
   def index
   @groups = Group.all
+  @users = User.all
+  
 
 end 
 
@@ -21,6 +23,7 @@ end
 
 def edit
     @group = Group.find(params[:id])
+
   end
 
 
