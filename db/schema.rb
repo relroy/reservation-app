@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320210046) do
+ActiveRecord::Schema.define(version: 20150325171828) do
 
   create_table "boats", force: :cascade do |t|
     t.string   "image_url",                limit: 255
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150320210046) do
     t.integer  "credits",          limit: 4
     t.boolean  "full_share",       limit: 1,   default: false
     t.boolean  "two_thirds_share", limit: 1,   default: false
+    t.string   "boat_id",          limit: 255
   end
 
   create_table "reservations", force: :cascade do |t|

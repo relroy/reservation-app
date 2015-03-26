@@ -1,0 +1,46 @@
+<div class="container-fluid">
+<h1>Reserve This Date</h1>
+
+<%=form_tag '/reservations' do %>
+  <div id="form-div">
+   <div class="inner_div">
+   <%= label_tag :date_reserved %>
+   <%= text_field_tag :date_reserved %>
+   </div>
+    
+    <div class="inner_div">
+    <%= label_tag :am_block %>
+      <%= text_field_tag :am_block %>
+    </div>
+    
+    <div class="inner_div">
+      <%= label_tag :pm_block %>
+      <%= text_field_tag :pm_block %>
+    </div>
+    
+    <div class="inner_div">
+    <%= label_tag :full_day_block %>
+      <%= text_field_tag :full_day_block %>
+    </div>
+    
+    <div class="inner_div">
+      <%= label_tag :boat_id %>
+      <%= text_field_tag :boat_id %>
+    </div>
+
+     <div class="inner_div">
+      <%= label_tag :user_id %>
+      <%= text_field_tag :user_id %>
+    </div>
+
+     <div class="inner_div">
+      <%= label_tag :group_id %>
+      <%= text_field_tag :group_id%>
+    </div>
+  </div>
+  </div>
+    <%= submit_tag "Reserve Date", :class => "reserve_date_button" %>
+  </div>
+
+<% end %>
+</div>

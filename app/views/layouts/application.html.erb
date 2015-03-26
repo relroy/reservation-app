@@ -48,12 +48,8 @@
             <li><a href="/admins">Administration</a></li>
             <% end %>
             <% if user_signed_in? && current_user.allowed? %>
-            <li><a href="/reservations/<%= current_user.group.id %>">Make Reservations</a></li>
+            <li><a href="/reservations" >See Reservations</a></li>
             <% end %>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
       </ul>
@@ -79,6 +75,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
 <%= yield %>
 
 </body>
