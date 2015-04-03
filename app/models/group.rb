@@ -1,6 +1,10 @@
 class Group < ActiveRecord::Base
-  has_many :users 
+
+  
+
+  belongs_to :user 
   has_many :reservations
   belongs_to :boat
+
   
 end

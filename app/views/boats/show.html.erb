@@ -20,7 +20,7 @@
   </table>
   <h3>Leases available for <%=@boat.name%>: <%=@boat.shares_possible %></h3>
   <% if  user_signed_in? && current_user.allowed? %>
-  <button><a href="/reservations/<%= current_user.group.id %>/edit">Reserve</a></button>
+  <button><a href="/reservations/<%= current_user.group.id %>/edit">Reserve your boat</a></button>
   <% end %>
   <br>
   <h2>Credit Rates</h2>

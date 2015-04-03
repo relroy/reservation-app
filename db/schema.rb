@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325171828) do
+ActiveRecord::Schema.define(version: 20150326230305) do
 
   create_table "boats", force: :cascade do |t|
     t.string   "image_url",                limit: 255
@@ -71,6 +71,23 @@ ActiveRecord::Schema.define(version: 20150325171828) do
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "time_blocks", force: :cascade do |t|
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "half_credit_AM_MTWTh", limit: 4
+    t.integer  "half_credit_PM_MTWTh", limit: 4
+    t.integer  "half_credit_AM_F",     limit: 4
+    t.integer  "half_credit_PM_F",     limit: 4
+    t.integer  "half_credit_AM_SAT",   limit: 4
+    t.integer  "half_credit_PM_SAT",   limit: 4
+    t.integer  "half_credit_AM_SUN",   limit: 4
+    t.integer  "half_credit_PM_SUN",   limit: 4
+    t.integer  "full_credit_MTWTh",    limit: 4
+    t.integer  "full_credit_F",        limit: 4
+    t.integer  "full_credit_SAT",      limit: 4
+    t.integer  "full_credit_SUN",      limit: 4
   end
 
   create_table "users", force: :cascade do |t|

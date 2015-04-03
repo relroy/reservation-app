@@ -1,46 +1,115 @@
 <div class="container-fluid">
-<h1>Reserve This Date</h1>
+<h1>Reserve a Date</h1>
+
+<u><h4>Today's Weather in Chicago</h4><u>
+<table class="table table-striped table-bordered table-responsive">
+  <thead>
+    <tr>
+      <th class="bg-primary"><img src="<%= @image %>"><br>Conditions: <%= @conditions %></th>
+      <th class="bg-primary">Sunset is at<br> <%= @sunset %></th>
+      <th class="bg-primary">Wind direction<br> <%= @wind.direction %> º</th>
+      <th class="bg-primary"> Wind speed<br> <%= @wind.speed %> knots</th>
+      <th class="bg-primary"> Temperature<br> <%= @temp %>º F</th>
+      <th class="bg-primary"> Wind chill<br> <%= @wind.chill %>º</th>
+    </tr>
+  </thead>
+
+<table class="table table-striped table-bordered table-responsive">
+<u><h4>5 - Day Forecast</h4></u>
+  <thead>
+    <tr>
+      <th class="bg-primary">Day</th>
+      <th class="bg-primary">Condition</th>
+      <th class="bg-primary">High Temp</th>
+      <th class="bg-primary">Low Temp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @forecasts.each do |forecast| %>    <tr>
+      <td><%= forecast.date.strftime('%A, %b %d') %></td>
+      <td><%= forecast.text %></td>
+      
+      <td><%= forecast.high %>º</td>
+    
+      <td><%= forecast.low %>º</td>
+    <% end %>
+      
+      
+    </tr>
+  </tbody>
+</table>
 
 <%=form_tag '/reservations' do %>
   <div id="form-div">
+
    <div class="inner_div">
-   <%= label_tag :date_reserved %>
-   <%= text_field_tag :date_reserved %>
+   <%= label_tag "" %>
+   <%= hidden_field_tag :group_id, current_user.group_id  %>
    </div>
+
+   <div class="inner_div">
+   <%= label_tag "" %>
+   <%= hidden_field_tag :user_id, current_user.id  %>
+   </div>
+<h3>Your Boat: <%= current_user.group.boat.name %></h3>
     
-    <div class="inner_div">
+   <div class="inner_div">
+   <%= label_tag "Date to reserve - " %>
+   <%= date_field_tag :date_reserved %>
+   </div>
+
+   <div class="inner_div">   
     <%= label_tag :am_block %>
-      <%= text_field_tag :am_block %>
-    </div>
-    
-    <div class="inner_div">
-      <%= label_tag :pm_block %>
-      <%= text_field_tag :pm_block %>
-    </div>
-    
-    <div class="inner_div">
+    <%= check_box_tag (:am_block) %>
+   </div>
+   <div class="inner_div">   
+    <%= label_tag :pm_block  %>
+    <%= check_box_tag (:pm_block) %>
+   </div>
+    <div class="inner_div">   
     <%= label_tag :full_day_block %>
-      <%= text_field_tag :full_day_block %>
-    </div>
-    
-    <div class="inner_div">
-      <%= label_tag :boat_id %>
-      <%= text_field_tag :boat_id %>
-    </div>
+    <%= check_box_tag (:full_day_block) %>
+   </div>
 
-     <div class="inner_div">
-      <%= label_tag :user_id %>
-      <%= text_field_tag :user_id %>
-    </div>
+   <%= submit_tag "Reserve Date", :class => "reserve_date_button" %><br><br>
 
-     <div class="inner_div">
-      <%= label_tag :group_id %>
-      <%= text_field_tag :group_id%>
-    </div>
-  </div>
-  </div>
-    <%= submit_tag "Reserve Date", :class => "reserve_date_button" %>
   </div>
 
 <% end %>
+
+
+<div id="reservations">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+    </h2>
+  <%= calendar @date do |date| %>
+  <% p "TEST" %>
+  <% p date %>
+    <%= date.day %>
+<!-- erb block from video -->
+    <% if @reservations_by_date[date] %>
+      <ul>
+        <% @reservations_by_date[date].each do |reservation| %>
+          <% if reservation.am_block? %>
+            <strong><li><a href='/reservations/<%=reservation.id %>'>AM Block Reserved</a></li></strong>
+          <% elsif reservation.pm_block? %>
+            <strong><li><a href='/reservations/<%=reservation.id %>'>PM Block Reserved</a></li></strong>
+          <% elsif reservation.full_day_block? %>
+            <strong><li><a href='/reservations/<%=reservation.id %>'>Full Block Reserved</a></li></strong>
+          <% end %>
+            <p>for <%= reservation.group.boat.name %><br>
+            <% if user_signed_in? && current_user.admin? %>
+               Reserved by: <a href="/users"><%= reservation.user.first_name %> <%= reservation.user.last_name %></a></p>
+            <% end %>
+        <% end %>
+      </ul>
+    <% end %>      
+  <% end %>
 </div>
+
+<%= current_user.group.boat.half_credit_AM_MTWTh %>
+
+</div>
+

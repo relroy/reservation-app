@@ -1,7 +1,7 @@
 <div class="container">
 <h1>Olson Classic Yacht Fleet</h1>
-	<div class="row">
-
+	 <div class = "row">
+  
 		<% @boats.each do |boat| %>
 
    		<div class="col-md-4 col-sm-6">
@@ -9,11 +9,13 @@
 	   		<div>
 				<h2><%=boat.name%></h2>
 				<h4><%=boat.make%> '<%=boat.size%></h4>
-				<img src="<%=boat.image_url%>" width="300" class="img-thumbnail">
+				<img src="<%=boat.image_url%>" width="290" class="img-thumbnail">
 			</div>
 		</a>
 	</div>
   <% end %>
 </div>
 <br>
+<br>
+
 

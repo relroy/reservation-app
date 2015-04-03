@@ -1,5 +1,43 @@
 <div class="container-fluid">
 
+  <u><h4>Today's Weather in Chicago</h4><u>
+<table class="table table-striped table-bordered table-responsive">
+  <thead>
+    <tr>
+      <th class="bg-primary"><img src="<%= @image %>"><br>Conditions: <%= @conditions %></th>
+      <th class="bg-primary">Sunset is at<br> <%= @sunset %></th>
+      <th class="bg-primary">Wind direction<br> <%= @wind.direction %> º</th>
+      <th class="bg-primary"> Wind speed<br> <%= @wind.speed %> knots</th>
+      <th class="bg-primary"> Temperature<br> <%= @temp %>º F</th>
+      <th class="bg-primary"> Wind chill<br> <%= @wind.chill %>º</th>
+    </tr>
+  </thead>
+
+<table class="table table-striped table-bordered table-responsive">
+<u><h4>5 - Day Forecast</h4></u>
+  <thead>
+    <tr>
+      <th class="bg-primary">Day</th>
+      <th class="bg-primary">Condition</th>
+      <th class="bg-primary">High Temp</th>
+      <th class="bg-primary">Low Temp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @forecasts.each do |forecast| %>    <tr>
+      <td><%= forecast.date.strftime('%A, %b %d') %></td>
+      <td><%= forecast.text %></td>
+      
+      <td><%= forecast.high %>º</td>
+    
+      <td><%= forecast.low %>º</td>
+    <% end %>
+      
+      
+    </tr>
+  </tbody>
+</table>
+
 <h1>Reservations for <%=@reservation.user.first_name %> <%=@reservation.user.last_name %></h1>
 <h2>Your Boat: <%= @reservation.group.boat.name %></h2>
 
