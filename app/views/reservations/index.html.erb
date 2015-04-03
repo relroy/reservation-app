@@ -54,13 +54,13 @@
       <ul>
         <% @reservations_by_date[date].each do |reservation| %>
           <% if reservation.am_block? %>
-            <strong><li><a href='/reservations/<%=reservation.id %>'>AM Block Reserved</a></li></strong>
+            <strong><li><a href='/reservations/<%=reservation.id %>'>AM Block <p>for <%= reservation.group.boat.name %> Reserved</a></li></strong>
           <% elsif reservation.pm_block? %>
-            <strong><li><a href='/reservations/<%=reservation.id %>'>PM Block Reserved</a></li></strong>
+            <strong><li><a href='/reservations/<%=reservation.id %>'>PM Block <p>for <%= reservation.group.boat.name %> Reserved</a></li></strong>
           <% elsif reservation.full_day_block? %>
-            <strong><li><a href='/reservations/<%=reservation.id %>'>Full Block Reserved</a></li></strong>
+            <strong><li><a href='/reservations/<%=reservation.id %>'>Full Block <p>for <%= reservation.group.boat.name %> Reserved</a></li></strong>
           <% end %>
-            <p>for <%= reservation.group.boat.name %><br>
+            
             <% if user_signed_in? && current_user.admin? %>
                Reserved by: <a href="/users"><%= reservation.user.first_name %> <%= reservation.user.last_name %></a></p>
             <% end %>
