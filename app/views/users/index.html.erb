@@ -18,6 +18,7 @@
         <th class="bg-primary">Phone</th>
         <th class="bg-primary">Boat Assigned</th>
         <th class="bg-primary">group_id</th>
+        <th class="bg-primary">Group Credits</th>
       </tr>
     </thead>
     <% @users.each do |user| %>
@@ -26,8 +27,9 @@
         <td><button><a href= "/users/<%= user.id %>/edit"> Edit </a></button>  <%= user.first_name %> <%= user.last_name %></td>
         <td><%= user.address %> <%= user.city %>, <%= user.state %> <%= user.zip_code %></td>
         <td><%= user.phone %></td>
-        <td><%= user.group.boat_assigned %></td>
+        <td><%= user.group.boat.name %></td>
         <td><%= user.group_id %></td>
+        <td><%= user.group.credits %></td>
       </tr>
     </tbody>
     <% end %>

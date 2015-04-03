@@ -48,7 +48,7 @@ class BoatsController < ApplicationController
 			params[:full_credit_MTWTh],:full_credit_F => params[:full_credit_F], :service_notes => params[:service_notes], :current_status => params[:current_status], :full_credit_SAT => 
 			params[:full_credit_SAT],:full_credit_SUN => params[:full_credit_SUN]})
 		flash[:info] = "Update Complete"
-		redirect_to "/boats/#{@boat.id}" 
+		redirect_to "/admins" 
 
 	end
 

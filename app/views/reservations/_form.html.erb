@@ -1,0 +1,69 @@
+<%=form_tag '/reservations' do %>
+  <div id="form-div">
+
+   <div class="inner_div">
+   <%= label_tag "" %>
+   <%= hidden_field_tag :group_id, current_user.group_id  %>
+   </div>
+
+   <div class="inner_div">
+   <%= label_tag "" %>
+   <%= hidden_field_tag :user_id, current_user.id  %>
+   </div>
+
+   <center><h2 class= 'boat_name'>Your Credit Rates for <%= current_user.group.boat.name %><br> Current Total Credits = <%= current_user.group.credits %></h2>
+  <h4>Day Block: 9 a.m. - 3 p.m. / Evening Block: 4 p.m. - 8 a.m. next morning / Full Day Block: 9 a.m. - 8 a.m. next morning</h4></center>
+  <table class="table table-striped table-bordered table-responsive">
+    <tr >
+      <th class="bg-primary">Time Blocks</th>
+      <th class="bg-primary">Sunday</th>
+      <th class="bg-primary">Monday - Thursday</th>
+      <th class="bg-primary">Friday</th>
+      <th class="bg-primary">Saturday</th>
+    </tr>
+    <tr>
+      <td>Day Block</td>
+      <td><%=current_user.group.boat.half_credit_AM_SUN%></td>
+      <td><%=current_user.group.boat.half_credit_AM_MTWTh%></td>
+      <td><%=current_user.group.boat.half_credit_AM_F%></td>
+      <td><%=current_user.group.boat.half_credit_AM_SAT%></td>
+    </tr>
+    <tr>
+      <td>Evening Block</td>
+      <td><%=current_user.group.boat.half_credit_PM_SUN%></td>
+      <td><%=current_user.group.boat.half_credit_PM_MTWTh%></td>
+      <td><%=current_user.group.boat.half_credit_PM_F%></td>
+      <td><%=current_user.group.boat.half_credit_PM_SAT%></td>
+    </tr>
+    <tr>
+      <td>Full Day</td>
+      <td><%=current_user.group.boat.full_credit_SUN%></td>
+      <td><%=current_user.group.boat.full_credit_MTWTh%></td>
+      <td><%=current_user.group.boat.full_credit_F%></td>
+      <td><%=current_user.group.boat.full_credit_SAT%></td>
+    </tr>
+  </table>
+
+<center>
+<h4>Check the calendar below for available times and dates.</center></h4>
+    
+   <div class="inner_div">
+    <%= label_tag "Date to reserve" %>
+    <%= date_field_tag :date_reserved, @date %>
+  
+   <h6>Check One:</h6>
+    
+    <%= check_box_tag (:am_block) %>
+    <%= label_tag :am_block %>
+       
+    <%= check_box_tag (:pm_block) %>
+    <%= label_tag :pm_block  %>
+     
+    <%= check_box_tag (:full_day_block) %>
+    <%= label_tag :full_day_block %>
+  
+   <%= submit_tag "Reserve Date", :class => "reserve_date_button" %>
+
+  </div>
+
+<% end %>

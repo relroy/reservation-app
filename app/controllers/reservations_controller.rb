@@ -94,9 +94,13 @@ class ReservationsController < ApplicationController
   end
 
   def create
+
     @reservation = Reservation.create({:date_reserved => params[:date_reserved], :user_id => params[:user_id], :group_id => params[:group_id], :am_block => params[:am_block], :pm_block => params[:pm_block], :full_day_block => params[:full_day_block]})
+    if @reservation.save
+         
     flash[:success] = "Reservation added"
     redirect_to '/reservations'
+    end
 
     response = Weather.lookup(12784296, Weather::Units::FARENHEIT)
     @temp = response.condition.temp

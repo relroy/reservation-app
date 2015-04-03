@@ -38,9 +38,9 @@
   </tbody>
 </table>
 
-<h1>Reservations for <%=@reservation.user.first_name %> <%=@reservation.user.last_name %></h1>
-<h2>Your Boat: <%= @reservation.group.boat.name %></h2>
-
+<center><h1>Reservations for <%=@reservation.user.first_name %> <%=@reservation.user.last_name %></h1></center>
+<center><h2> Boat: <%= @reservation.group.boat.name %></h2></center>
+<center>
 <% if @reservation.full_day_block? %>
 <h4>Full day reserved for <%= @reservation.date_reserved.strftime("%A, %D") %></h4>
 <% elsif @reservation.am_block? %>
@@ -49,4 +49,5 @@
 <h4>PM block reserved for <%= @reservation.date_reserved.strftime("%A, %D") %></h4>
 <% else %>
 <% end %>
+</center>
 </div>

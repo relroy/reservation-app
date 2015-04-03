@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326230305) do
+ActiveRecord::Schema.define(version: 20150403210142) do
 
   create_table "boats", force: :cascade do |t|
     t.string   "image_url",                limit: 255
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20150326230305) do
     t.boolean  "full_day_block", limit: 1,   default: false
     t.string   "user_id",        limit: 255
     t.string   "group_id",       limit: 255
-    t.string   "boat_id",        limit: 255
   end
 
   create_table "share_options", force: :cascade do |t|
