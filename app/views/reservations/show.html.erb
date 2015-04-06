@@ -50,4 +50,6 @@
 <% else %>
 <% end %>
 </center>
+<%= @day = Date.parse(@reservation.date_reserved.to_s) %>
+<%= @day.wday %>
 </div>

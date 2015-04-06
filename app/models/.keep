@@ -1,0 +1,55 @@
+ if @reservation.am_block? && isAWeekday
+      if @full_day_block
+        hasEnoughCredits(@current_credits, @boat.full_day_block_MTWTh)
+      else
+        hasEnoughCredits(@current_credits, @boat.half_day_block_MTWTh)
+      end
+    else @pm_block && isAWeekday
+      if @full_day_block
+
+      else
+
+      end
+    else @am_block
+      if @full_day_block
+
+      else
+
+      end
+    else @pm_block
+      if @full_day_block
+
+      else
+
+      end
+    end
+
+
+    # timeblock = TimeBlock.find({:name == @timeblockEnum, :boat == @boatId})
+
+    # if @current_credits > timeblock.needed_credits
+
+    # end
+
+    # # look above or below
+
+    # def isWeekday?(date_reserved)
+    #    d = Date.parse(Date.today.to_s)  
+    #    d.wday
+
+    # end
+
+    # def hasEnoughCredits(current_credits, needed_credits)
+    #   return current_credits > needed_credits
+    # end
+
+    # isAWeekday = isWeekday?(@date_reserved)
+
+    d = Date.parse('3rd Feb 2001')
+                             #=> #<Date: 2001-02-03 ...>
+d.year                       #=> 2001
+d.mon                        #=> 2
+d.mday                       #=> 3
+d.wday                       #=> 6
+d += 1                       #=> #<Date: 2001-02-04 ...>
+d.strftime('%a %d %b %Y')    #=> "Sun 04 Feb 2001"
