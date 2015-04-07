@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403210142) do
+ActiveRecord::Schema.define(version: 20150407172408) do
 
   create_table "boats", force: :cascade do |t|
     t.string   "image_url",                limit: 255
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20150403210142) do
   create_table "groups", force: :cascade do |t|
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
-    t.string   "boat_assigned",    limit: 255
     t.integer  "credits",          limit: 4
     t.boolean  "full_share",       limit: 1,   default: false
     t.boolean  "two_thirds_share", limit: 1,   default: false
@@ -64,6 +63,15 @@ ActiveRecord::Schema.define(version: 20150403210142) do
     t.boolean  "full_day_block", limit: 1,   default: false
     t.string   "user_id",        limit: 255
     t.string   "group_id",       limit: 255
+  end
+
+  create_table "reservations_enum", force: :cascade do |t|
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.datetime "date_reserved"
+    t.string   "block",         limit: 4,   null: false
+    t.string   "user_id",       limit: 255
+    t.string   "group_id",      limit: 255
   end
 
   create_table "share_options", force: :cascade do |t|

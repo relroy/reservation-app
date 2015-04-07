@@ -5,8 +5,8 @@
 <%= form_tag("/groups/#{@group.id}", :method => :patch) do %>
 
   <div class="field">
-    <%= label_tag :boat_assigned %><br />
-    <%= text_field_tag :boat_assigned, @group.boat_assigned, :required => true %>
+    <%= label_tag :boat_id %><br />
+    <%= text_field_tag :boat_id, @group.boat_id, :required => true %>
   </div>
 
   <div class="field">

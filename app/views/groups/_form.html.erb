@@ -1,0 +1,27 @@
+<div class = "container-fluid">
+
+
+ <%=form_tag '/groups' do %>
+   <div id="form-div">
+    <!-- not correct yet -->
+   <div class="inner_div">
+   <%= label_tag "2/3rds Share" %>
+   <%= check_box_tag (:two_thirds_share)  %>
+   </div>
+
+   <div class="inner_div">
+   <%= label_tag "Full Share" %>
+   <%= check_box_tag (:full_share) %>
+   </div>
+
+   <div class="inner_div">
+   <%= label_tag "Boat ID #" %>
+   <%= number_field_tag :boat_id  %>
+   </div>
+
+  <%= submit_tag "Create New Group", :class => "create_group" %>
+
+   </div>
+<% end %>
+
+</div>

@@ -7,18 +7,40 @@ class GroupsController < ApplicationController
 
 end 
 
+def new
+  @boat = Boat.find(1)
+  
+end
+
+def create
+  @group = Group.create({:credits => params[:credits], :boat_id => params[:boat_id], :two_thirds_share => params[:two_thirds_share], :full_share => params[:full_share]})
+
+  @current_shares_possible = @group.boat.shares_possible
+
+
+  if @group.save && @group.two_thirds_share?
+    @new_shares_possible = (@current_shares_possible - 1)
+    puts @new_shares_possible
+    @group.boat.update({:shares_possible => @new_shares_possible})
+    @group.update({:credits => @group.boat.two_thirds_credits_total})
+  elsif @group.save && @group.full_share?
+    @new_shares_possible = (@current_shares_possible - 1)
+    puts @new_shares_possible
+    @group.boat.update({:shares_possible => @new_shares_possible})
+    @group.update({:credits => @group.boat.full_credits_total})
+  end
+
+  
+  flash[:success] = "Group added"
+    redirect_to '/groups'
+end
+
 #connect these actions through join table with Users model?
 # def show
 
 # end
 
-# def new
 
-# end
-
-# def create
-
-# end
 
 
 def edit
@@ -29,7 +51,9 @@ def edit
 
   def update
     @group = Group.find(params[:id])
-    @group.update({:credits => params[:credits], :boat_id => params[:boat_id]})#how will this connect with user_id in Users model?
+    @group.update({:credits => params[:credits], :boat_id => params[:boat_id], :full_share => params[:full_share], :two_thirds_share => params[:two_thirds_share]})#how will this connect with user_id in Users model?
+    @boat = @group.boat
+    @boat.update({:shares_possible => params[:shares_possible]})
     flash[:info] = "Update Complete"
     redirect_to "/boats" 
   end

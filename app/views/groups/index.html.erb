@@ -1,4 +1,4 @@
-<div class+ "container-fluid">
+<div class = "container-fluid">
 
 <h1> <a href="/users"> Users</a> Groups</h1>
 
@@ -21,10 +21,10 @@
         <td>Full Share</td>
         <% elsif group.two_thirds_share %>
         <td>2/3rds Share</td>
-        <td> <%= group.boat_assigned %></td>       
+        <% end %>
+        <td> <%= group.boat.name %></td>       
       </tr>
     </tbody>
-  <% end %>
   <% end %>
 </table>
 
