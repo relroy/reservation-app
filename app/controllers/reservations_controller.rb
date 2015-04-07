@@ -110,15 +110,35 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.create({:date_reserved => params[:date_reserved], :user_id => params[:user_id], :group_id => params[:group_id], :am_block => params[:am_block], :pm_block => params[:pm_block], :full_day_block => params[:full_day_block]})
 
     @day = Date.parse(@reservation.date_reserved.to_s)
-    @day = @day.wday
-    puts @day.class
+    @weekday = @day.wday
+    puts @weekday.class
+    puts @weekday
   
-    if @reservation.save && @reservation.am_block? 
+    if @reservation.save && @reservation.am_block? && @weekday == 1||@weekday == 2||@weekday == 3||@weekday == 4
       @new_credit_total = (@current_credits - @boat.half_credit_AM_MTWTh)
-    elsif @reservation.save && @reservation.pm_block?
+    elsif @reservation.save && @reservation.pm_block? && @weekday == 1||@weekday == 2||@weekday == 3||@weekday == 4
       @new_credit_total = (@current_credits - @boat.half_credit_PM_MTWTh)
-    elsif @reservation.save && @reservation.full_day_block?
+    elsif @reservation.save && @reservation.full_day_block? && @weekday == 1||@weekday == 2||@weekday == 3||@weekday == 4
       @new_credit_total = (@current_credits - @boat.full_credit_MTWTh)
+
+    elsif @reservation.save && @reservation.am_block? && @weekday == 5
+      @new_credit_total = (@current_credits - @boat.half_credit_AM_F)
+    elsif @reservation.save && @reservation.pm_block? && @weekday == 5
+      @new_credit_total = (@current_credits - @boat.half_credit_PM_F)
+    elsif @reservation.save && @reservation.full_day_block? && @weekday == 5
+      @new_credit_total = (@current_credits - @boat.full_credit_F)
+    elsif @reservation.save && @reservation.am_block? && @weekday == 6
+      @new_credit_total = (@current_credits - @boat.half_credit_AM_SAT)
+    elsif @reservation.save && @reservation.pm_block? && @weekday == 6
+      @new_credit_total = (@current_credits - @boat.half_credit_PM_SAT)
+    elsif @reservation.save && @reservation.full_day_block? && @weekday == 6
+      @new_credit_total = (@current_credits - @boat.full_credit_SAT)
+      elsif @reservation.save && @reservation.am_block? && @weekday == 0
+      @new_credit_total = (@current_credits - @boat.half_credit_AM_SUN)
+    elsif @reservation.save && @reservation.pm_block? && @weekday == 0
+      @new_credit_total = (@current_credits - @boat.half_credit_PM_SUN)
+    elsif @reservation.save && @reservation.full_day_block? && @weekday == 0
+      @new_credit_total = (@current_credits - @boat.full_credit_SUN)
     else 
       
     
