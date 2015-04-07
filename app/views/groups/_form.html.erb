@@ -12,16 +12,25 @@
    <div class="inner_div">
    <%= label_tag "Full Share" %>
    <%= check_box_tag (:full_share) %>
-   </div>
+   </div> <br>
+
+   <p>---------------------------------</p>
 
    <div class="inner_div">
-   <%= label_tag "Boat ID #" %>
-   <%= number_field_tag :boat_id  %>
+   <%#= label_tag "Boat ID #" %>
+   <%#= number_field_tag :boat_id  %>
    </div>
+
+   <% @boats.each do |boat| %>
+   <div class="inner_div">
+   <p><%= boat.name %> <%= check_box_tag (:boat_id)  %>  -------- Shares Available <%= boat.shares_possible%> </p>
+   </div><br>
+
+   <% end %>
 
   <%= submit_tag "Create New Group", :class => "create_group" %>
 
    </div>
 <% end %>
 
-</div>
+</div><br>

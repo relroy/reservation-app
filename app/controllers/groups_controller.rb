@@ -8,6 +8,7 @@ class GroupsController < ApplicationController
 end 
 
 def new
+  @boats = Boat.all
   @boat = Boat.find(1)
   
 end
