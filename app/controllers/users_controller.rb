@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update({:first_name => params[:first_name], :last_name => params[:last_name], :address => params[:address], :city => params[:city], :state => params[:state], :zip_code => params[:zip_code], :phone => params[:phone], :boat_assigned => params[:boat_assigned], :full_share => params[:full_share], :two_thirds_share => params[:two_thirds_share], :allowed => params[:allowed], :email=> params[:email],  :group_id=> params[:group_id],  :group_size=> params[:group_size] })
+    @user.update({:first_name => params[:first_name], :last_name => params[:last_name], :address => params[:address], :city => params[:city], :state => params[:state], :zip_code => params[:zip_code], :phone => params[:phone], :notes => params[:notes],  :allowed => params[:allowed], :email=> params[:email],  :group_id=> params[:group_id]})
     flash[:info] = "Update Complete"
     redirect_to "/users"
     

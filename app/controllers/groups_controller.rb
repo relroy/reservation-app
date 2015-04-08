@@ -21,12 +21,12 @@ def create
 
   if @group.save && @group.two_thirds_share?
     @new_shares_possible = (@current_shares_possible - 1)
-    puts @new_shares_possible
+    # puts @new_shares_possible
     @group.boat.update({:shares_possible => @new_shares_possible})
     @group.update({:credits => @group.boat.two_thirds_credits_total})
   elsif @group.save && @group.full_share?
     @new_shares_possible = (@current_shares_possible - 1)
-    puts @new_shares_possible
+    # puts @new_shares_possible
     @group.boat.update({:shares_possible => @new_shares_possible})
     @group.update({:credits => @group.boat.full_credits_total})
   end

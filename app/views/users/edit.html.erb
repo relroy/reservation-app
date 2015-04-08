@@ -46,8 +46,18 @@
   </div>
 
   <div class="field">
+    <%= label_tag :group_id %><br />
+    <%= text_field_tag :group_id, @user.group_id, :required => true %>
+  </div>
+
+  <div class="field">
     <%= label_tag :allowed %> true or false?<br />
     <%= text_field_tag :allowed, @user.allowed, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :notes %><br />
+    <%= text_field_tag :notes, @user.notes %>
   </div>
 
   <div class="actions">
