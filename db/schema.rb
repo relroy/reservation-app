@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407172408) do
+ActiveRecord::Schema.define(version: 20150408013647) do
 
   create_table "boats", force: :cascade do |t|
     t.string   "image_url",                limit: 255
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 20150407172408) do
     t.integer  "size",                     limit: 4
     t.integer  "shares_possible",          limit: 4
     t.decimal  "full_share_price",                       precision: 6, scale: 2
+    t.integer  "full_credits_total",       limit: 4
     t.decimal  "two_thirds_share_price",                 precision: 6, scale: 2
+    t.integer  "two_thirds_credits_total", limit: 4
     t.datetime "created_at",                                                                     null: false
     t.datetime "updated_at",                                                                     null: false
     t.string   "harbor",                   limit: 255
@@ -38,8 +40,6 @@ ActiveRecord::Schema.define(version: 20150407172408) do
     t.integer  "full_credit_SAT",          limit: 4
     t.integer  "full_credit_SUN",          limit: 4
     t.string   "type",                     limit: 255
-    t.integer  "two_thirds_credits_total", limit: 4
-    t.integer  "full_credits_total",       limit: 4
     t.text     "service_notes",            limit: 65535
     t.string   "current_status",           limit: 255
     t.boolean  "one_day_out",              limit: 1,                             default: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150407172408) do
     t.boolean  "full_share",       limit: 1,   default: false
     t.boolean  "two_thirds_share", limit: 1,   default: false
     t.string   "boat_id",          limit: 255
+    t.integer  "credits_used",     limit: 4
   end
 
   create_table "reservations", force: :cascade do |t|

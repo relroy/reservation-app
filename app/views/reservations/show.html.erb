@@ -11,6 +11,8 @@
       <th class="bg-primary">Group ID</th>
       <th class="bg-primary">Group Members</th>
       <th class="bg-primary">Reserved On</th>
+      <th class="bg-primary">Credits Remaining</th>
+      <th class="bg-primary">Credits Used</th>
     </tr>
   </thead>
   <tbody>
@@ -33,6 +35,8 @@
       <% end %>
       </td>
       <td><%= @reservation.created_at.strftime("%A, %D") %></td>
+      <td><%= @reservation.group.credits %></td>
+      <td>nothing</td>
     </tr>
   </tbody>
 </table>
