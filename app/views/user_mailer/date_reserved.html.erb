@@ -1,0 +1,10 @@
+<h1>Reservations</h1>
+
+<h1>
+  <%= @reservation.user.first_name %>, You have reserved <%= @reservation.user.group.boat.name %> for <%= @reservation.date_reserved.strftime('%A, %b %d') %> for the <% if @reservation.am_block? %>AM Block <% elsif @reservation.pm_block? %>PM Block <% elsif @reservation.full_day_block? %>Full Day Block<% end %>.
+</h1>
+<h3>Thank you for your business!</h3>
+
+Group Members: <% @reservation.group.users.each do |user| %>
+<p><%= user.first_name %> <%= user.last_name %></p>
+<% end %>

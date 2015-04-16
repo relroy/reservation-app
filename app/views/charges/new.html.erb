@@ -1,0 +1,20 @@
+<div class= "container-fluid">
+
+<center><a href="http://imgur.com/Rh0oLdm"><img src="http://i.imgur.com/Rh0oLdm.png" title="source: imgur.com" /></a>
+  <h1>Please pay the amount shown to begin your reservations!</h1>
+
+<%= form_tag charges_path do %>
+  <article>
+    <label class="amount">
+      <span>Amount: $<%= @amount %>.00</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="<%= @amount * 100 %>"></script>
+<% end %>
+<h1><%= current_user.group.boat.name%></h1>
+<img src="<%=current_user.group.boat.image_url%>" width="250" class="img-thumbnail"></center>
+</div>

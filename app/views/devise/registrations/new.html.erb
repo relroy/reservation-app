@@ -1,5 +1,5 @@
 <div class="container-fluid">
-<h2>Register</h2>
+<h2>Register or <a href="/users/sign_in">Sign in</a></h2>
 <h3>Once registered you will be contacted with further details.</h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -8,48 +8,43 @@
   <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true, :required => true %>
-  </div>
+  </div><br />
 
   <div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autofocus: true, :required => true %>
-  </div>
+  </div><br />
 
 
   <div class="field">
     <%= f.label :address %><br />
     <%= f.text_field :address, autofocus: true, :required => true %>
-  </div>
+  </div><br />
 
   <div class="field">
     <%= f.label :city %><br />
     <%= f.text_field :city, autofocus: true, :required => true %>
-  </div>
+  </div><br />
 
   <div class="field">
     <%= f.label :state %><br />
     <%= f.text_field :state, autofocus: true, :required => true %>
-  </div>
+  </div><br />
 
   <div class="field">
     <%= f.label :zip_code %><br />
     <%= f.text_field :zip_code, autofocus: true, :required => true %>
-  </div>
+  </div><br />
 
   <div class="field">
     <%= f.label :phone %><br />
     <%= f.text_field :phone, autofocus: true, :required => true%>
-  </div>
-
-  <div class="field">
-    <%= f.label :boat_preference %><br />
-    <%= f.text_field :boat_preference, autofocus: true %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
-  </div>
+  </div><br />
 
   <div class="field">
     <%= f.label :password %>
@@ -57,12 +52,12 @@
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  </div><br />
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+  </div><br />
 
   <div class="actions">
     <%= f.submit "Sign up" %>

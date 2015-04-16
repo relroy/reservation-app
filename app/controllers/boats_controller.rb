@@ -6,7 +6,12 @@ class BoatsController < ApplicationController
 	end
 
 	def show
+		if user_signed_in?
  		@boat = Boat.find(params[:id])
+ 		else 
+ 		redirect_to "/users/sign_up"
+ 		flash[:warning] = "You Must Be Signed In to View Boats Information."
+ 		end
  		# if @boat.shares_possible < 1
  		# 	flash[:notice] = "Sorry, all the shares for this vessel are taken at this time. Please check back soon."
  		# end

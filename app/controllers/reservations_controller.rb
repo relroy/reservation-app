@@ -108,23 +108,60 @@ class ReservationsController < ApplicationController
     @current_credits = current_user.group.credits
     @current_credits_used = 0
 
+    @reservations = Reservation.all
+
+    # @reservations.each do |reservation|
+    #   if reservation
+
+    #     flash[:warning] = "Sorry, you picked a time on this date that already exists. Please choose another time and date."
+    #   end
+    # end
+
+      
     @reservation = Reservation.create({:date_reserved => params[:date_reserved], :user_id => params[:user_id], :group_id => params[:group_id], :am_block => params[:am_block], :pm_block => params[:pm_block], :full_day_block => params[:full_day_block]})
+
 
     @day = Date.parse(@reservation.date_reserved.to_s)
     @weekday = @day.wday
     # puts @weekday.class
-    # puts @weekday
+     puts @weekday
   
-    if @reservation.save && @reservation.am_block? && @weekday == 1||@weekday == 2||@weekday == 3||@weekday == 4
+    if @reservation.save && @reservation.am_block? && @weekday == 1 
       @new_credit_total = (@current_credits - @boat.half_credit_AM_MTWTh)
       @new_credits_used = (@current_credits_used + @boat.half_credit_AM_MTWTh)
-    elsif @reservation.save && @reservation.pm_block? && @weekday == 1||@weekday == 2||@weekday == 3||@weekday == 4
+    elsif @reservation.save && @reservation.am_block? && @weekday == 2
+      @new_credit_total = (@current_credits - @boat.half_credit_AM_MTWTh)
+      @new_credits_used = (@current_credits_used + @boat.half_credit_AM_MTWTh)
+    elsif @reservation.save && @reservation.am_block? && @weekday == 3
+      @new_credit_total = (@current_credits - @boat.half_credit_AM_MTWTh)
+      @new_credits_used = (@current_credits_used + @boat.half_credit_AM_MTWTh)
+    elsif @reservation.save && @reservation.am_block? && @weekday == 4 
+      @new_credit_total = (@current_credits - @boat.half_credit_AM_MTWTh)
+      @new_credits_used = (@current_credits_used + @boat.half_credit_AM_MTWTh)
+    elsif @reservation.save && @reservation.pm_block? && @weekday == 1
       @new_credit_total = (@current_credits - @boat.half_credit_PM_MTWTh)
       @new_credits_used = (@current_credits_used + @boat.half_credit_PM_MTWTh)
-    elsif @reservation.save && @reservation.full_day_block? && @weekday == 1||@weekday == 2||@weekday == 3||@weekday == 4
+    elsif @reservation.save && @reservation.pm_block? && @weekday == 2
+      @new_credit_total = (@current_credits - @boat.half_credit_PM_MTWTh)
+      @new_credits_used = (@current_credits_used + @boat.half_credit_PM_MTWTh)
+    elsif @reservation.save && @reservation.pm_block? && @weekday == 3
+      @new_credit_total = (@current_credits - @boat.half_credit_PM_MTWTh)
+      @new_credits_used = (@current_credits_used + @boat.half_credit_PM_MTWTh)
+    elsif @reservation.save && @reservation.pm_block? && @weekday == 4 
+      @new_credit_total = (@current_credits - @boat.half_credit_PM_MTWTh)
+      @new_credits_used = (@current_credits_used + @boat.half_credit_PM_MTWTh)
+    elsif @reservation.save && @reservation.full_day_block? && @weekday == 1
       @new_credit_total = (@current_credits - @boat.full_credit_MTWTh)
       @new_credits_used = (@current_credits_used + @boat.full_credit_MTWTh)
-
+    elsif @reservation.save && @reservation.full_day_block? && @weekday == 2
+      @new_credit_total = (@current_credits - @boat.full_credit_MTWTh)
+      @new_credits_used = (@current_credits_used + @boat.full_credit_MTWTh)
+    elsif @reservation.save && @reservation.full_day_block? && @weekday == 3
+      @new_credit_total = (@current_credits - @boat.full_credit_MTWTh)
+      @new_credits_used = (@current_credits_used + @boat.full_credit_MTWTh)
+    elsif @reservation.save && @reservation.full_day_block? && @weekday == 4 
+      @new_credit_total = (@current_credits - @boat.full_credit_MTWTh)
+      @new_credits_used = (@current_credits_used + @boat.full_credit_MTWTh)
     elsif @reservation.save && @reservation.am_block? && @weekday == 5
       @new_credit_total = (@current_credits - @boat.half_credit_AM_F)
       @new_credits_used = (@current_credits_used + @boat.half_credit_AM_F)
@@ -158,13 +195,16 @@ class ReservationsController < ApplicationController
     end
     # puts @new_credit_total 
     puts @new_credits_used
+  
 
     @group = current_user.group
     @group.update({:credits => @new_credit_total, :credits_used => @new_credits_used})
 
+    UserMailer.date_reserved(@reservation).deliver
+
 
     flash[:success] = "Reservation added"
-    redirect_to '/reservations'
+    redirect_to '/reservations/new'
     
 
     
@@ -172,6 +212,7 @@ class ReservationsController < ApplicationController
   end
 
   def update
+
     @reservation = Reservation.find(params[:id])
     @reservation.update({:date_reserved => params[:date_reserved]})
     flash[:success] = "Your Reservation is scheduled for #{@reservation.date_reserved.strftime('%A, %b %d')}"

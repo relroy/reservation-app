@@ -6,7 +6,9 @@
     <thead>
       <tr>
         <th class="bg-primary">Group ID</th>
-        <th class="bg-primary">Group Credits Total</th>
+        <th class="bg-primary">Group Captain</th>
+        <th class="bg-primary">Group Members</th>
+        <th class="bg-primary">Group Credits Remaining</th>
         <th class="bg-primary">Type</th>
         <th class="bg-primary">Boat Assigned</th>
       </tr>
@@ -15,7 +17,13 @@
   <% @groups.each do |group| %> 
   <tbody>
       <tr>
-        <td><button><a href= "/groups/<%= group.id %>/edit"> Edit Group</a></button>  <%= group.id %></td>
+        <td><button><a href= "/groups/<%= group.id %>/edit"> Edit Group</a></button> &nbsp; <%= group.id %></td>
+        <td><%= group.captain %></td>
+        <td>
+          <% group.users.each do |user| %>
+          <p><%= user.first_name %> <%= user.last_name %></p>
+          <%end %>
+        </td>
         <td><%= group.credits %></td>
         <% if group.full_share %>
         <td>Full Share</td>

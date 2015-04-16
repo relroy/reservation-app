@@ -2,6 +2,17 @@
 <div class="container-fluid">
 
 <table class="table table-striped table-bordered table-responsive">
+<center><h1>Time Blocks</h1></center>
+  <thead>
+    <tr>
+      <th class="bg-primary">AM Block = 9 AM - 3 PM</th><br>
+      <th class="bg-primary">PM Block = 4 PM - 8 AM</th><br>
+      <th class="bg-primary">Full Day Block = 9 AM - 8 AM</th>
+    </tr>
+  </thead>
+</table>
+
+<table class="table table-striped table-bordered table-responsive">
   <center><h1>Reservations</h1></center>
   <thead>
     <tr>
@@ -36,21 +47,9 @@
       </td>
       <td><%= @reservation.created_at.strftime("%A, %D") %></td>
       <td><%= @reservation.group.credits %></td>
-      <td>nothing</td>
+      <td><%= @reservation.group.credits_used %></td>
     </tr>
   </tbody>
 </table>
 
-
-<table class="table table-striped table-bordered table-responsive">
-<center><h1>Time Blocks</h1></center>
-  <thead>
-    <tr>
-      <th class="bg-primary">AM Block = 9 AM - 3 PM</th><br>
-      <th class="bg-primary">PM Block = 4 PM - 8 AM</th><br>
-      <th class="bg-primary">Full Day Block = 9 AM - 8 AM</th>
-    </tr>
-  </thead>
-</table>
-
-
+</div>

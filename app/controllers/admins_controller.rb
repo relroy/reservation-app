@@ -7,6 +7,8 @@ class AdminsController < ApplicationController
     end
 
     @boats = Boat.all
+
+    @groups = Group.all
     
   end
 

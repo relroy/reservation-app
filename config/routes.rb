@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'notifications/index'
+
+  get 'notifications/create'
+
   devise_for :users
   
 
@@ -21,6 +25,8 @@ Rails.application.routes.draw do
   resources :groups
 
   resources :reservations
+
+  resources :charges
   
   get '/' => 'boats#index'
   get '/boats' => 'boats#index'

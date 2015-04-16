@@ -14,7 +14,7 @@ def new
 end
 
 def create
-  @group = Group.create({:credits => params[:credits], :boat_id => params[:boat_id], :two_thirds_share => params[:two_thirds_share], :full_share => params[:full_share]})
+  @group = Group.create({:credits => params[:credits], :boat_id => params[:boat_id], :two_thirds_share => params[:two_thirds_share], :full_share => params[:full_share], :captain => params[:captain]})
 
   @current_shares_possible = @group.boat.shares_possible
 
@@ -46,15 +46,15 @@ end
 
 def edit
     @group = Group.find(params[:id])
-
+    @boats = Boat.all
   end
 
 
   def update
     @group = Group.find(params[:id])
-    @group.update({:credits => params[:credits], :boat_id => params[:boat_id], :full_share => params[:full_share], :two_thirds_share => params[:two_thirds_share]})#how will this connect with user_id in Users model?
+    @group.update({:credits => params[:credits], :boat_id => params[:boat_id], :captain => params[:captain]})#how will this connect with user_id in Users model?
     @boat = @group.boat
-    @boat.update({:shares_possible => params[:shares_possible]})
+    # @boat.update({:shares_possible => params[:shares_possible]})
     flash[:info] = "Update Complete"
     redirect_to "/boats" 
   end

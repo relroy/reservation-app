@@ -16,14 +16,15 @@
 
    <p>---------------------------------</p>
 
-   <div class="inner_div">
-   <%#= label_tag "Boat ID #" %>
-   <%#= number_field_tag :boat_id  %>
+   <div class="field">
+    <%= label_tag :captain %><br />
+    <%= text_field_tag :captain  %>
    </div>
 
    <% @boats.each do |boat| %>
    <div class="inner_div">
-   <p><%= boat.name %> <%= check_box_tag (:boat_id)  %>  -------- Shares Available <%= boat.shares_possible%> </p>
+   <%= label_tag boat.name %><br />
+   <%= check_box_tag :boat_id, boat.id  %>  -------- Shares Available <%= boat.shares_possible%> 
    </div><br>
 
    <% end %>

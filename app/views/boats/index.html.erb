@@ -1,12 +1,17 @@
 <div class="container">
-<h1>Olson Classic Yacht Fleet</h1>
+<center><h1>Olson Classic Yacht Fleet</h1>
+  <% if user_signed_in? == false  %>
+  <div class="signup_to_reserve">
+    <center><h3><a href="/users/sign_in">Sign in</a> to reserve a boat today or <a href="/users/sign_up">Sign up</a> to get more information about<br>Olson's Classic Yacht rentals.</h3></center>
+  </div></center>
+  <% end %>
 	 <div class = "row">
   
 		<% @boats.each do |boat| %>
 
-   		<div class="col-md-4 col-sm-6">
+   		<div class="col-md-4 col-sm-6" >
    		<a href="/boats/<%=boat.id%>">	
-	   		<div>
+	   		<div class="img-thumbnail-title">
 				<h2><%=boat.name%></h2>
 				<h4><%=boat.make%> '<%=boat.size%></h4>
 				<img src="<%=boat.image_url%>" width="290" class="img-thumbnail">

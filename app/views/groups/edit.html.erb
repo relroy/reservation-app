@@ -1,12 +1,15 @@
 <div class="container-fluid">
-  <h1>Edit Group Information for  </h1>
+  <h1>Edit Group Information  </h1>
+
+  <h3>Current Boat Assigned is <%= @group.boat.name %>.</h3>
+  <p>Please be sure to check one boat even if one is assigned already.</p>
 <!-- should this edit a join table w/ user info instead?!  -->
 
 <%= form_tag("/groups/#{@group.id}", :method => :patch) do %>
 
   <div class="field">
-    <%= label_tag :boat_id %><br />
-    <%= text_field_tag :boat_id, @group.boat_id, :required => true %>
+    <%= label_tag :captain %><br />
+    <%= text_field_tag :captain, @group.captain, :required => true %>
   </div>
 
   <div class="field">
@@ -14,15 +17,14 @@
     <%= text_field_tag :credits, @group.credits, :required => true %>
   </div>
 
-  <div class="field">
-    <%= label_tag :full_share %><br />
-    <%= text_field_tag :full_share, @group.full_share %>
-  </div>
+   <% @boats.each do |boat| %>
+   <div class="inner_div">
+   <%= label_tag boat.name %><br />
+   <%= check_box_tag :boat_id, boat.id  %>  
+   </div>
+   <p>Shares Available <%= boat.shares_possible%> </p><br>
 
-  <div class="field">
-    <%= label_tag :two_thirds_share %><br />
-    <%= text_field_tag :two_thirds_share, @group.two_thirds_share %>
-  </div>
+   <% end %>
 
   
   <div class="actions">

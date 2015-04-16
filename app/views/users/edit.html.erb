@@ -51,8 +51,8 @@
   </div>
 
   <div class="field">
-    <%= label_tag :allowed %> true or false?<br />
-    <%= text_field_tag :allowed, @user.allowed, :required => true %>
+    <%= label_tag '' %><br />
+    <%= hidden_field_tag :allowed, @user.allowed = true %> 
   </div>
 
   <div class="field">
@@ -60,12 +60,39 @@
     <%= text_field_tag :notes, @user.notes %>
   </div>
 
+  <div class="field">
+    <%= label_tag "Others you want in your group" %><br />
+    <%= text_field_tag :group_members %>
+  </div>
+  
+  <div class="field">
+    <%= label_tag :sailing_experience %><br />
+    <%= text_area_tag(:sailing_experience, "Briefly describe your sailing experience:", size: "50x10", :required => true )%> 
+  </div>
+
+
   <div class="actions">
     <%= submit_tag "Submit Changes", :class => "submit_user_changes" %>
   </div>
 <% end %>
 
 
+  <div class= "groupTable"><h1>Groups</h1><% @groups.each do |group| %>
+    <table class="table table-striped table-bordered table-responsive">
+      <thead>
+        <tr>
+        <th class="bg-primary">Boat ID:<%= group.id %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <td class="bg-primary">Captain: <%= group.captain %></td> 
+        </tr>
+      </tbody>
+    </table>
+
+  <% end %>
+  </div>
 
 <%= link_to "Back", :back %>
 
